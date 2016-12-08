@@ -90,5 +90,8 @@ _Upgr/
 Backup*/
 UpgradeLog*.XML
 
-# FAKE hidden directory
+# FAKE - F# Make
 .fake/
+
+# Paket - package management
+.paket/paket.exe
