@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>FsCheck</id>
+    <version>2.6.2</version>
+    <authors>Kurt Schelfthout and contributors</authors>
+    <owners>Kurt Schelfthout and contributors</owners>
+    <licenseUrl>https://github.com/fsharp/FsCheck/blob/master/License.txt</licenseUrl>
+    <projectUrl>https://github.com/fsharp/FsCheck</projectUrl>
+    <description>FsCheck is a tool for testing .NET programs automatically. The programmer provides
+a specification of the program, in the form of properties which functions, methods
+or objects should satisfy, and FsCheck then tests that the properties hold in a
+large number of randomly generated cases.
+
+While writing the properties, you are actually writing a testable specification of your program.
+
+Specifications are expressed in F#, C# or VB, using combinators defined
+in the FsCheck library. FsCheck provides combinators to define properties,
+observe the distribution of test data, and define test data generators.
+When a property fails, FsCheck automatically displays a minimal counter example.</description>
+    <summary>FsCheck is a tool for testing .NET programs automatically using randomly generated test cases.</summary>
+    <releaseNotes>Add VB.NET support back. (by Paulmichael Blasucci)
+Add HostName generator. (by Mark Seemann)
+Add Check extenions to output FsCheck output to xUnit's output helper. (by Johannes Egger)</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>test testing random fscheck quickcheck</tags>
+    <dependencies>
+      <dependency id="FSharp.Core" version="3.1.2.5" />
+    </dependencies>
+  </metadata>
+</package>

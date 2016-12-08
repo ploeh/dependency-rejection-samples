@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<coreProperties xmlns="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:creator>Kurt Schelfthout and contributors</dc:creator>
+  <dc:description>FsCheck.Xunit integrates FsCheck with xUnit.NET by adding a PropertyAttribute that runs FsCheck tests, similar to xUnit.NET's FactAttribute.
+
+All the options normally available in vanilla FsCheck via configuration can be controlled via the PropertyAttribute.</dc:description>
+  <dc:identifier>FsCheck.Xunit</dc:identifier>
+  <version>2.6.2</version>
+  <keywords />
+  <dc:title>FsCheck.Xunit</dc:title>
+  <lastModifiedBy>paket</lastModifiedBy>
+</coreProperties>

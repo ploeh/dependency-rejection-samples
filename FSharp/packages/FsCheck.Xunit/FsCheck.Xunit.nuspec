@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>FsCheck.Xunit</id>
+    <version>2.6.2</version>
+    <authors>Kurt Schelfthout and contributors</authors>
+    <owners>Kurt Schelfthout and contributors</owners>
+    <licenseUrl>https://github.com/fsharp/FsCheck/blob/master/License.txt</licenseUrl>
+    <projectUrl>https://github.com/fsharp/FsCheck</projectUrl>
+    <description>FsCheck.Xunit integrates FsCheck with xUnit.NET by adding a PropertyAttribute that runs FsCheck tests, similar to xUnit.NET's FactAttribute.
+
+All the options normally available in vanilla FsCheck via configuration can be controlled via the PropertyAttribute.</description>
+    <summary>Integrates FsCheck with xUnit.NET</summary>
+    <releaseNotes>Add VB.NET support back. (by Paulmichael Blasucci)
+Add HostName generator. (by Mark Seemann)
+Add Check extenions to output FsCheck output to xUnit's output helper. (by Johannes Egger)</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>test testing random fscheck quickcheck xunit xunit.net</tags>
+    <dependencies>
+      <dependency id="FsCheck" version="2.6.2" />
+      <dependency id="xunit.extensibility.execution" version="[2.1.0,3.0.0)" />
+    </dependencies>
+  </metadata>
+</package>
