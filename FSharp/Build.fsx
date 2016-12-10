@@ -1,12 +1,18 @@
 ﻿#r @"packages/FAKE/tools/FakeLib.dll"
 
 open Fake
+open Fake.Testing
 
 Target "Build" <| fun _ ->
     !! "**/BookingApi.sln"
     |> MSBuildRelease "" "Rebuild"
     |> ignore
 
-"Build"
+Target "Test" <| fun _ ->
+    !! "*/bin/Release/Ploeh.Samples.*.dll"
+    |> xUnit2 (fun p -> { p with Parallel = ParallelMode.All })
 
-RunTargetOrDefault "Build"
+"Build"
+==> "Test"
+
+RunTargetOrDefault "Test"
