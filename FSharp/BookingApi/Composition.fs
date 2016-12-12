@@ -10,9 +10,12 @@ open MaîtreD
 // More pretension
 let connectionString = ""
 
+// ('a -> 'b -> 'c) -> 'b -> 'a -> 'c
+let flip f x y = f y x
+
 // Reservation -> int option
 let tryAcceptComposition reservation =
     reservation.Date
     |> DB.readReservations connectionString
-    |> fun reservations -> tryAccept 10 reservations reservation
+    |> fun reservations -> flip (tryAccept 10) reservation reservations
     |> Option.map (DB.createReservation connectionString)
