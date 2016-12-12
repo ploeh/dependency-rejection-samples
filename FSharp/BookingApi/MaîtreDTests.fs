@@ -30,9 +30,8 @@ let ``tryAccept behaves correctly when it can accept``
         excessCapacity
         + (reservations |> List.sumBy (fun x -> x.Quantity))
         + reservation.Quantity
-    let readReservations = ((=!) reservation.Date) >>! reservations
 
-    let actual = tryAccept capacity readReservations reservation
+    let actual = tryAccept capacity reservations reservation
 
     Some { reservation with IsAccepted = true } =! actual
 
@@ -45,8 +44,7 @@ let ``tryAccept behaves correctly when it can't accept``
     |>  Arb.fromGen |> Prop.forAll <| fun (reservation, reservations) ->
     let capacity =
         (reservations |> List.sumBy (fun x -> x.Quantity)) - lackingCapacity
-    let readReservations _ = reservations
 
-    let actual = tryAccept capacity readReservations reservation
+    let actual = tryAccept capacity reservations reservation
 
     None =! actual

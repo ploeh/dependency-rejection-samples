@@ -8,10 +8,10 @@ type Reservation = {
     IsAccepted : bool
 }
 
-// int -> (DateTimeOffset -> Reservation list) -> Reservation -> Reservation option
-let tryAccept capacity readReservations reservation =
+// int -> Reservation list -> Reservation -> Reservation option
+let tryAccept capacity reservations reservation =
     let reservedSeats =
-        readReservations reservation.Date |> List.sumBy (fun x -> x.Quantity)
+        reservations |> List.sumBy (fun x -> x.Quantity)
     if reservedSeats + reservation.Quantity <= capacity
     then { reservation with IsAccepted = true } |> Some
     else None
