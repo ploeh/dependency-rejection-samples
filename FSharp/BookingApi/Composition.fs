@@ -12,6 +12,6 @@ let connectionString = ""
 
 // Reservation -> int option
 let tryAcceptComposition reservation =
-    let read = DB.readReservations connectionString
-    let create = DB.createReservation connectionString
-    tryAccept 10 read create reservation
+    match tryAccept 10 (DB.readReservations connectionString) reservation with
+    | None -> None
+    | Some r -> (DB.createReservation connectionString) r |> Some

@@ -21,8 +21,7 @@ module Gen =
 
 [<Property(QuietOnSuccess = true)>]
 let ``tryAccept behaves correctly when it can accept``
-    (NonNegativeInt excessCapacity)
-    (expected : int) =
+    (NonNegativeInt excessCapacity) =
     Tuple2.curry id
     <!> Gen.reservation
     <*> Gen.listOf Gen.reservation
@@ -32,13 +31,10 @@ let ``tryAccept behaves correctly when it can accept``
         + (reservations |> List.sumBy (fun x -> x.Quantity))
         + reservation.Quantity
     let readReservations = ((=!) reservation.Date) >>! reservations
-    let createReservation =
-        ((=!) { reservation with IsAccepted = true }) >>! expected
 
-    let actual =
-        tryAccept capacity readReservations createReservation reservation
+    let actual = tryAccept capacity readReservations reservation
 
-    Some expected =! actual
+    Some { reservation with IsAccepted = true } =! actual
 
 [<Property(QuietOnSuccess = true)>]
 let ``tryAccept behaves correctly when it can't accept``
@@ -50,9 +46,7 @@ let ``tryAccept behaves correctly when it can't accept``
     let capacity =
         (reservations |> List.sumBy (fun x -> x.Quantity)) - lackingCapacity
     let readReservations _ = reservations
-    let createReservation _ = failwith "Mock shouldn't be called."
 
-    let actual =
-        tryAccept capacity readReservations createReservation reservation
+    let actual = tryAccept capacity readReservations reservation
 
     None =! actual
