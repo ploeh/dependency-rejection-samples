@@ -12,5 +12,6 @@ let connectionString = ""
 
 // Reservation -> int option
 let tryAcceptComposition reservation =
-    tryAccept 10 (DB.readReservations connectionString) reservation
+    reservation
+    |> tryAccept 10 (DB.readReservations connectionString)
     |> Option.map (DB.createReservation connectionString)
