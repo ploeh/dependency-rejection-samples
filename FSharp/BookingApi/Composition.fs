@@ -17,5 +17,5 @@ let flip f x y = f y x
 let tryAcceptComposition reservation =
     reservation.Date
     |> DB.readReservations connectionString
-    |> fun reservations -> flip (tryAccept 10) reservation reservations
+    |> flip (tryAccept 10) reservation
     |> Option.map (DB.createReservation connectionString)
