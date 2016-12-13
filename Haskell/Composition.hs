@@ -1,14 +1,15 @@
 module Composition where
 
+import Control.Monad.Trans (liftIO)
+import Control.Monad.Trans.Maybe (MaybeT(..), runMaybeT)
 import MaîtreD
 import DB
 
 connectionString :: ConnectionString
 connectionString = ""
 
--- Doesn't compile; that's the whole point!
 tryAcceptComposition :: Reservation -> IO (Maybe Int)
-tryAcceptComposition reservation =
-  let read = DB.readReservations connectionString
-      create = DB.createReservation connectionString
-  in tryAccept 10 read create reservation
+tryAcceptComposition reservation = runMaybeT $
+  liftIO (DB.readReservations connectionString $ date reservation)
+  >>= MaybeT . return . flip (tryAccept 10) reservation
+  >>= liftIO . DB.createReservation connectionString

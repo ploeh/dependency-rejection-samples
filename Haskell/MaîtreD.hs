@@ -6,10 +6,9 @@ data Reservation =
   Reservation { date :: ZonedTime, quantity :: Int, isAccepted :: Bool }
   deriving (Show)
 
-tryAccept :: Int -> (ZonedTime -> [Reservation]) -> (Reservation -> Int) -> Reservation
-             -> Maybe Int
-tryAccept capacity readReservations createReservation reservation =
-  let reservedSeats = sum $ map quantity $ readReservations $ date reservation
+tryAccept :: Int -> [Reservation] -> Reservation -> Maybe Reservation
+tryAccept capacity reservations reservation =
+  let reservedSeats = sum $ map quantity reservations
   in  if reservedSeats + quantity reservation <= capacity
-      then Just $ createReservation $ reservation { isAccepted = True }
+      then Just $ reservation { isAccepted = True }
       else Nothing
