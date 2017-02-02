@@ -90,6 +90,9 @@ _Upgr/
 Backup*/
 UpgradeLog*.XML
 
+# Stack
+Haskell/.stack-work
+
 # FAKE - F# Make
 .fake/
 
