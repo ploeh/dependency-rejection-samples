@@ -13,7 +13,7 @@ maintainer:          example@example.com
 copyright:           2017 Mark Seemann
 category:            Web
 build-type:          Simple
-cabal-version:       >=1.10
+cabal-version:       >= 1.10
 
 library
   exposed-modules:     MaîtreD, Composition, DB
