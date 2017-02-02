@@ -1,0 +1,18 @@
+name:                BookingApi
+version:             0.1.0.0
+synopsis:            Handling a reservation request in Haskell
+description:         Please see README.md
+homepage:            https://github.com/ploeh/dependency-rejection-samples
+license:             MIT
+license-file:        LICENSE
+author:              Mark Seemann
+maintainer:          example@example.com
+copyright:           2017 Mark Seemann
+category:            Web
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     MaîtreD, Composition, DB
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5, time, mtl, transformers
