@@ -5,11 +5,6 @@ open FsCheck
 open FsCheck.Xunit
 open Swensen.Unquote
 
-// 'Guard' composition. Returns the return value if ``assert`` doesn't throw.
-let (>>!) ``assert`` returnValue x =
-    ``assert`` x
-    returnValue
-
 module Tuple2 =
     let curry f x y = f (x, y)
 
