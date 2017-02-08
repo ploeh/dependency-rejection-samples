@@ -7,9 +7,10 @@ module MaîtreDTests
 
 import           Control.Monad      (liftM2)
 import           Data.Maybe         (isNothing)
-import           Data.Time          (ZonedTime (..), defaultTimeLocale,
-                                     iso8601DateFormat, parseTimeOrError)
-import           Data.Time.Calendar (gregorianMonthLength)
+import           Data.Time          (LocalTime (..), ZonedTime (..),
+                                     defaultTimeLocale, iso8601DateFormat,
+                                     midnight, parseTimeOrError, utc)
+import           Data.Time.Calendar (fromGregorian, gregorianMonthLength)
 import           MaîtreD
 import           Test.QuickCheck
 import           Text.Printf        (printf)
@@ -19,9 +20,7 @@ instance Arbitrary ZonedTime where
     y <- choose (1, 9999)
     m <- choose (1, 12)
     d <- choose (1, gregorianMonthLength y m)
-    return $
-      (parseTimeOrError True defaultTimeLocale $ iso8601DateFormat Nothing)
-      (printf "%04d" y ++ "-" ++ printf "%02d" m ++ "-" ++ printf "%02d" d)
+    return $ ZonedTime (LocalTime (fromGregorian y m d) midnight) utc
 
 genReservation :: Gen Reservation
 genReservation = do
