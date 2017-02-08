@@ -1,6 +1,9 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
-module MaîtreDTests where
+module MaîtreDTests
+    ( tryAcceptBehavesCorrectlyWhenItCanAccept
+    , tryAcceptBehavesCorrectlyWhenItCanNotAccept
+    ) where
 
 import           Control.Monad      (liftM2)
 import           Data.Maybe         (isNothing)
