@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 module MaîtreDTests where
 
 import           Control.Monad      (liftM2)
