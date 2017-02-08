@@ -3,6 +3,7 @@
 module MaîtreDTests where
 
 import           Control.Monad      (liftM2)
+import           Data.Maybe         (isNothing)
 import           Data.Time          (ZonedTime (..), defaultTimeLocale,
                                      iso8601DateFormat, parseTimeOrError)
 import           Data.Time.Calendar (gregorianMonthLength)
@@ -45,3 +46,14 @@ tryAcceptBehavesCorrectlyWhenItCanAccept (NonNegative excessCapacity) =
           actual = tryAccept capacity reservations reservation
 
       in Just (reservation { isAccepted = True }) == actual)
+
+tryAcceptBehavesCorrectlyWhenItCanNotAccept :: Positive Int -> Property
+tryAcceptBehavesCorrectlyWhenItCanNotAccept (Positive lackingCapacity) =
+  forAll
+    (liftM2 (,) genReservation $ listOf genReservation)
+    (\(reservation, reservations) ->
+      let capacity = sumBy quantity reservations - lackingCapacity
+
+          actual = tryAccept capacity reservations reservation
+
+      in isNothing actual)
