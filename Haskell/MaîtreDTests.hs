@@ -7,9 +7,8 @@ module MaîtreDTests
 
 import           Control.Monad      (liftM2)
 import           Data.Maybe         (isNothing)
-import           Data.Time          (LocalTime (..), ZonedTime (..),
-                                     defaultTimeLocale, iso8601DateFormat,
-                                     midnight, parseTimeOrError, utc)
+import           Data.Time          (LocalTime (..), ZonedTime (..), midnight,
+                                     utc)
 import           Data.Time.Calendar (fromGregorian, gregorianMonthLength)
 import           MaîtreD
 import           Test.QuickCheck
