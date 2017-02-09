@@ -13,7 +13,6 @@ instance Eq Reservation where
     && quantity                   x  ==  quantity                  y
     && isAccepted                 x  == isAccepted                 y
 
-
 tryAccept :: Int -> [Reservation] -> Reservation -> Maybe Reservation
 tryAccept capacity reservations reservation =
   let reservedSeats = sum $ map quantity reservations
