@@ -1,6 +1,6 @@
 module MaîtreD where
 
-import Data.Time (ZonedTime (zonedTimeToLocalTime, zonedTimeZone))
+import Data.Time (ZonedTime (..))
 
 data Reservation =
   Reservation { date :: ZonedTime, quantity :: Int, isAccepted :: Bool }
