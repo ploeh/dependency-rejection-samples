@@ -16,7 +16,7 @@
 --
 
 import           Control.Monad   (unless)
-import           MaîtreDTests
+import           MaitreDTests
 import           Test.QuickCheck (Property, Result (..), maxSize, maxSuccess,
                                   property, quickCheckWithResult, stdArgs)
 import           Text.Printf     (printf)
