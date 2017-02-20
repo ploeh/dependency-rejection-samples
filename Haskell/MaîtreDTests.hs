@@ -12,7 +12,6 @@ import           Data.Time          (LocalTime (..), ZonedTime (..), midnight,
 import           Data.Time.Calendar (fromGregorian, gregorianMonthLength)
 import           MaîtreD
 import           Test.QuickCheck
-import           Text.Printf        (printf)
 
 instance Arbitrary ZonedTime where
   arbitrary = do
