@@ -1,6 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
-module MaîtreDTests
+module MaitreDTests
     ( tryAcceptBehavesCorrectlyWhenItCanAccept
     , tryAcceptBehavesCorrectlyWhenItCanNotAccept
     ) where
@@ -10,7 +10,7 @@ import           Data.Maybe         (isNothing)
 import           Data.Time          (LocalTime (..), ZonedTime (..), midnight,
                                      utc)
 import           Data.Time.Calendar (fromGregorian, gregorianMonthLength)
-import           MaîtreD
+import           MaitreD
 import           Test.QuickCheck
 
 instance Arbitrary ZonedTime where

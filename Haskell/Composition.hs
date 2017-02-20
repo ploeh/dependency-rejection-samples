@@ -2,7 +2,7 @@ module Composition where
 
 import Control.Monad.Trans (liftIO)
 import Control.Monad.Trans.Maybe (MaybeT(..), runMaybeT)
-import MaîtreD
+import MaitreD
 import DB
 
 connectionString :: ConnectionString

@@ -2,7 +2,7 @@
 module DB where
 
 import Data.Time (ZonedTime)
-import MaîtreD
+import MaitreD
 
 type ConnectionString = String
 

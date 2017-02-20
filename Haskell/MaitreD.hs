@@ -1,4 +1,4 @@
-module MaîtreD where
+module MaitreD where
 
 import Data.Time (ZonedTime (..))
 
