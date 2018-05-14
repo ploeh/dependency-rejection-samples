@@ -1,17 +1,14 @@
 module MaitreD where
 
-import Data.Time (ZonedTime (..))
+import Data.Time (ZonedTime (..), TimeZone (..))
 
 data Reservation =
   Reservation { date :: ZonedTime, quantity :: Int, isAccepted :: Bool }
-  deriving (Show)
+  deriving (Show, Eq)
 
-instance Eq Reservation where
-  x == y =
-       zonedTimeZone        (date x) == zonedTimeZone        (date y)
-    && zonedTimeToLocalTime (date x) == zonedTimeToLocalTime (date y)
-    && quantity                   x  ==  quantity                  y
-    && isAccepted                 x  == isAccepted                 y
+instance Eq ZonedTime where
+  ZonedTime t (TimeZone z _ _) == ZonedTime t' (TimeZone z' _ _) =
+    t == t' && z == z'
 
 tryAccept :: Int -> [Reservation] -> Reservation -> Maybe Reservation
 tryAccept capacity reservations reservation =
